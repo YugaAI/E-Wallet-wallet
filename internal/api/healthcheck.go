@@ -12,7 +12,7 @@ type HealthCheckService struct {
 	HealthCheckServices interfaces.IHealtCheckServices
 }
 
-func (api *HealthCheckService) HealthCheckHandlerHTTP(c *gin.Context) {
+func (api *HealthCheckService) HealthcheckHandlerHTTP(c *gin.Context) {
 	msg, err := api.HealthCheckServices.HealtCheckServices()
 
 	if err != nil {

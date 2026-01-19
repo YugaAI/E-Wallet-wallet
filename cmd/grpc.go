@@ -10,15 +10,15 @@ import (
 )
 
 func ServerGRPC() {
-	list, err := net.Listen("tcp", ":"+helpers.GetEnv("GRCP_PORT", "7000"))
+	list, err := net.Listen("tcp", ":"+helpers.GetEnv("GRPC_PORT", ""))
 	if err != nil {
-		log.Fatal("failed serve to GRCP", err)
+		log.Fatal("failed serve to GRPC", err)
 	}
 
 	s := grpc.NewServer()
 
-	logrus.Info("start listening GRPC on port: " + helpers.GetEnv("GRCP_PORT", "7000"))
+	logrus.Info("start listening GRPC on port: " + helpers.GetEnv("GRPC_PORT", ""))
 	if err := s.Serve(list); err != nil {
-		log.Fatal("failed serve to GRCP", err)
+		log.Fatal("failed serve to GRPC", err)
 	}
 }

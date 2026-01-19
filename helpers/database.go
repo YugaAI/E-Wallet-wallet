@@ -1,6 +1,7 @@
 package helpers
 
 import (
+	"E-Wallet-wallet/internal/models"
 	"fmt"
 	"log"
 
@@ -26,4 +27,6 @@ func SetupMySQL() {
 		log.Fatal("Field connecting to database", err)
 	}
 	logrus.Info("Connected to database")
+
+	DB.AutoMigrate(&models.Wallet{}, &models.WalletTransaction{})
 }
