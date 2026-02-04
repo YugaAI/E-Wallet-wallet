@@ -22,7 +22,7 @@ func (*External) ValidateToken(ctx context.Context, token string) (models.TokenD
 
 	conn, err := grpc.Dial(helpers.GetEnv("UMS_GRPC_HOST", ""), grpc.WithInsecure())
 	if err != nil {
-		return resp, errors.Wrap(err, "failed to dial ums grpc")
+		return resp, errors.Wrap(err, "failed to dial ums handlerGrpc")
 	}
 	defer conn.Close()
 
